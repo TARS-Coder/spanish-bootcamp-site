@@ -211,7 +211,7 @@
         
         $.ajax({
             type: "POST",
-            url: "https://formsubmit.co/apnacooler@gmail.com",
+            url: "https://formsubmit.co/88bc2219f5beb2fce46d9f7f2d6f6b00",
             data: "name=" + name + "&email=" + email + "&phone=" + phone + "&ChildName=" + childname, 
             success: function(text) {
                 if (text == "success") {
@@ -265,7 +265,7 @@
         var terms = $("#nterms").val();
         $.ajax({
             type: "POST",
-            url: "https://formsubmit.co/apnacooler@gmail.com",
+            url: "https://formsubmit.co/88bc2219f5beb2fce46d9f7f2d6f6b00",
             data: "title=" + "Newsletter" + "email=" + email + "&terms=" + terms, 
             success: function(text) {
                 if (text == "success") {
@@ -321,7 +321,7 @@
         var terms = $("#cterms").val();
         $.ajax({
             type: "POST",
-            url: "https://formsubmit.co/apnacooler@gmail.com",
+            url: "https://formsubmit.co/88bc2219f5beb2fce46d9f7f2d6f6b00",
             data: "name=" + name + "&email=" + email + "&message=" + message + "&terms=" + terms, 
             success: function(text) {
                 if (text == "success") {
