@@ -647,11 +647,41 @@ input[type='checkbox'] {
 }
 
 .navbar-custom .navbar-brand.logo-text {
-	font: italic 600 2rem/1.5rem "Montserrat", sans-serif;
-	color: #ffbd50;
-	text-decoration: none;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1.5rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2rem; /* default desktop size */
+    color: #ffbd50;
+    text-decoration: none;
+    white-space: nowrap; /* to prevent breaking into two lines */
 }
 
+/* Responsive size for smaller devices */
+@media (max-width: 768px) {
+    .navbar-custom .navbar-brand.logo-text {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-custom .navbar-brand.logo-text {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+	.navbar-custom .navbar-brand.logo-text {
+	  font-size: 1.2rem;
+	}
+  }
+
+  @media (max-width: 414px) {
+	.navbar-custom .navbar-brand.logo-text {
+	  font-size: 1rem;
+	}
+  }
+	
 .navbar-custom .navbar-nav {
 	margin-top: 0.75rem;
 	margin-bottom: 0.5rem;
@@ -756,13 +786,55 @@ input[type='checkbox'] {
 /*********************/
 /*    04. Header     */
 /*********************/
+/* Header with video background */
 .header {
-	position: relative;
-	padding-top: 8rem;
-	padding-bottom: 40%;
-	background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../images/header-background.jpg') center center no-repeat;
-	background-size: cover;
-	text-align: center;
+    position: relative;
+    padding-top: 8rem;
+    padding-bottom: 40%;
+    text-align: center;
+    overflow: hidden;
+    background: none; /* Remove old background image */
+}
+
+/* Container for video */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+/* Position iframe properly */
+.video-background iframe {
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    transform: scale(1.2); /* Slight zoom */
+}
+
+/* Content stays on top */
+.text-container, .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Optional: dark overlay for better text readability */
+.video-background::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        rgba(0,0,0,0.6) 0%,
+        rgba(0,0,0,0.6) 50%,
+        rgba(0,0,0,0.6) 100%
+    ); /* Smooth dark overlay */
+    z-index: 1;
 }
 
 .header .countdown {
