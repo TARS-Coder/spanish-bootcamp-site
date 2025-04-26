@@ -1,6 +1,5 @@
-/* Template: Corso - Free Training Course Landing Page Template
-   Author: Inovatik
-   Created: Nov 2019
+/*   Author: Ronn
+   Created: Apr 2025
    Description: Custom JS file
 */
 
@@ -205,15 +204,15 @@
 
     function rsubmitForm() {
         // initiate variables with form content
-		var name = $("#rname").val();
-		var email = $("#remail").val();
-		var phone = $("#rphone").val();
-        var terms = $("#rterms").val();
+		var name = $("#p_name").val();
+		var email = $("#p_email").val();
+		var phone = $("#p_phone").val();
+        var childname = $("#c_name").val();
         
         $.ajax({
             type: "POST",
-            url: "php/registrationform-process.php",
-            data: "name=" + name + "&email=" + email + "&phone=" + phone + "&terms=" + terms, 
+            url: "https://formsubmit.co/apnacooler@gmail.com",
+            data: "name=" + name + "&email=" + email + "&phone=" + phone + "&ChildName=" + childname, 
             success: function(text) {
                 if (text == "success") {
                     rformSuccess();
@@ -266,8 +265,8 @@
         var terms = $("#nterms").val();
         $.ajax({
             type: "POST",
-            url: "php/newsletterform-process.php",
-            data: "email=" + email + "&terms=" + terms, 
+            url: "https://formsubmit.co/apnacooler@gmail.com",
+            data: "title=" + "Newsletter" + "email=" + email + "&terms=" + terms, 
             success: function(text) {
                 if (text == "success") {
                     nformSuccess();
@@ -322,7 +321,7 @@
         var terms = $("#cterms").val();
         $.ajax({
             type: "POST",
-            url: "php/contactform-process.php",
+            url: "https://formsubmit.co/apnacooler@gmail.com",
             data: "name=" + name + "&email=" + email + "&message=" + message + "&terms=" + terms, 
             success: function(text) {
                 if (text == "success") {

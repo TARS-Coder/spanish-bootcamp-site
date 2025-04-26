@@ -47,7 +47,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
 
         <!-- Text Logo - Use this if you don't have a graphic logo -->
-        <a class="navbar-brand logo-text page-scroll" href="index.html">NexoLingo</a>
+        <a class="navbar-brand logo-text page-scroll" href="index.html">LinguaVida School Of Languages</a>
 
         <!-- Image Logo -->
         <!--<a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative"></a> -->
@@ -62,9 +62,9 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a class="nav-link page-scroll" href="#register">REGISTER</a></li>
-                <li class="nav-item"><a class="nav-link page-scroll" href="#overview">OVERVIEW</a></li>
-                <li class="nav-item"><a class="nav-link page-scroll" href="#testimonials">TESTIMONIALS</a></li>
                 <li class="nav-item"><a class="nav-link page-scroll" href="#instructor">INSTRUCTOR</a></li>
+                <li class="nav-item"><a class="nav-link page-scroll" href="#description">OVERVIEW</a></li>
+                <li class="nav-item"><a class="nav-link page-scroll" href="#testimonials">Our Reviews</a></li>
                 <li class="nav-item"><a class="nav-link page-scroll" href="#contact">CONTACT</a></li>
                 </ul>
             <span class="nav-item social-icons">
@@ -110,6 +110,12 @@
                 <div class="swiper-container image-slider-1">
                     <div class="swiper-wrapper">
                         
+                        <!-- Slide -->
+                        <div class="swiper-slide">
+                            <img class="img-fluid" src="images/slide-4.jpg" alt="alternative">
+                        </div>
+                        <!-- end of slide -->
+
                         <!-- Slide -->
                         <div class="swiper-slide" >
                             <img class="img-fluid" src="images/slide-1.jpg" alt="alternative">
@@ -159,11 +165,24 @@
         </div>
         <div class="col-lg-6">
           <form id="registrationForm" data-toggle="validator" data-focus="false">
-            <div class="form-group"><input type="text" class="form-control-input" id="rname" name="rname" required><label class="label-control" for="rname">Parent/Guardian Name</label></div>
-            <div class="form-group"><input type="email" class="form-control-input" id="remail" name="remail" required><label class="label-control" for="remail">Email Address</label></div>
-            <div class="form-group"><input type="text" class="form-control-input" id="rphone" name="rphone" required><label class="label-control" for="rphone">Contact Number</label></div>
-            <div class="form-group"><input type="text" class="form-control-input" id="childname" name="childname" required><label class="label-control" for="childname">Child’s Name</label></div>
-            <div class="form-group checkbox"><input type="checkbox" id="rterms" required> I agree to the terms and privacy policy</div>
+            <div class="form-group">
+                <input type="text" class="form-control-input" id="rname" name="p_name" required>
+                <label class="label-control" for="rname">Parent/Guardian Name</label>
+            </div>
+            <div class="form-group">
+                    <input type="email" class="form-control-input" id="remail" name="p_email" required>
+                    <label class="label-control" for="remail">Email Address</label>
+                </div>
+            <div class="form-group">
+                <input type="text" class="form-control-input" id="rphone" name="p_phone" required>
+                <label class="label-control" for="rphone">Contact Number</label>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control-input" id="childname" name="c_name" required>
+                <label class="label-control" for="childname">Child’s Name</label>
+            </div>
+            <div class="form-group checkbox">
+                <input type="checkbox" id="rterms" required> I agree to the terms and privacy policy</div>
             <button type="submit" class="form-control-submit-button">REGISTER</button>
             <div id="rmsgSubmit" class="h3 text-center hidden"></div>
           </form>
@@ -182,7 +201,7 @@
                 <div class="col-lg-6">
                     <div class="text-container">
                         <h2 style="margin-bottom: 0px;">Hola Everybody! I'm Neha </h2>
-                        <i>Course Instructor and Founder at NexoLingo</i>
+                        <i>Course Instructor and Founder at LVSL</i>
                         <p style="margin-top: 10px;"> I’ve taught students in Spain and in top Indian national and international schools, and even helped a bright student from France excel in his career.</p>
                         <p>Having lived in several European countries, especially Spain, I bring real cultural insight into my teaching. </p>
                     </div> <!-- end of text-container -->
@@ -418,11 +437,11 @@
 
 
     <!-- Testimonials -->
-    <div class="slider-2">
+    <div class="slider-2" id="testimonials">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h3>Check out our attendees testimonials from previous editions of the SEO Training</h3>
+                    <h3>What Our Students & Parents Say</h3>
 
                     <!-- Text Slider -->
                     <div class="slider-container">
@@ -494,75 +513,6 @@
     </div> <!-- end of slider-2 -->
     <!-- end of testimonials -->
 
-    <!-- Newsletter -->
-    <div class="form-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h3>Stay updated with news by subscribing to our newsletter and our social channels</h3>
-                    
-                    <!-- Newsletter Form -->
-                    <form id="newsletterForm" data-toggle="validator" data-focus="false">
-                        <div class="form-group">
-                            <input type="email" class="form-control-input" id="nemail" required>
-                            <label class="label-control" for="nemail">Email</label>
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        <div class="form-group checkbox">
-                            <input type="checkbox" id="nterms" value="Agreed-to-Terms" required>I've read and agree to Corso's written <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-conditions.html">Terms Conditions</a> 
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="form-control-submit-button">SIGN UP</button>
-                        </div>
-                        <div class="form-message">
-                            <div id="nmsgSubmit" class="h3 text-center hidden"></div>
-                        </div>
-                    </form>
-                    <!-- end of newsletter form -->
-
-                    <!-- Social Links -->
-                    <div class="icon-container">
-                        <span class="fa-stack">
-                            <a href="#your-link">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-facebook-f fa-stack-1x"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="#your-link">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-twitter fa-stack-1x"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="#your-link">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-pinterest-p fa-stack-1x"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="#your-link">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-instagram fa-stack-1x"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="#your-link">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-linkedin-in fa-stack-1x"></i>
-                            </a>
-                        </span>
-                    </div> <!-- end of icon-container -->
-                    <!-- end of social icons -->
-
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of form-2 -->
-    <!-- end of newsletter -->
-
-
     <!-- Contact -->
     <div id="contact" class="form-3">
         <div class="container">
@@ -583,7 +533,7 @@
                             </li>
                             <li class="media">
                                 <i class="fas fa-envelope"></i>
-                                <div class="media-body"><a class="light-gray" href="mailto:nexolingo@gmail.com">nexolingo@gmail.com</a> <i class="fas fa-globe"></i><a class="light-gray" href="#your-link">www.nexolingo.com</a></div>
+                                <div class="media-body"><a class="light-gray" href="mailto:lvsl@gmail.com">lvsl@gmail.com</a> <i class="fas fa-globe"></i><a class="light-gray" href="#your-link">www.lvsl.in</a></div>
                             </li>
                         </ul>
                     </div> <!-- end of text-container -->
@@ -631,8 +581,8 @@
   <div class="footer">
     <div class="container">
       <div class="row">
-        <div class="col-md-6"><h5>About NexoLingo</h5><p>We’re dedicated to nurturing young minds through immersive Spanish language and cultural experiences.</p></div>
-        <div class="col-md-6 text-right"><p>&copy; 2025 Nexolingo. All rights reserved.</p></div>
+        <div class="col-md-6"><h5>About LinguaVida School Of Languages</h5><p>We’re dedicated to nurturing young minds through immersive Spanish language and cultural experiences.</p></div>
+        <div class="col-md-6 text-right"><p>&copy; 2025 LinguaVida School Of Languages. All rights reserved.</p></div>
       </div>
     </div>
   </div>
