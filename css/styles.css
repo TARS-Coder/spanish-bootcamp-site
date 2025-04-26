@@ -67,7 +67,7 @@ body, p {
 
 h1 {
 	color: #333;
-	font: 700 2.75rem/3.375rem "Montserrat", sans-serif;
+	font: 700 1.75rem/3.375rem "Montserrat", sans-serif;
 }
 
 h2 {
@@ -793,35 +793,27 @@ input[type='checkbox'] {
     padding-bottom: 40%;
     text-align: center;
     overflow: hidden;
-    background: none; /* Remove old background image */
+    background: none;
 }
 
-/* Container for video */
 .video-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    overflow: hidden;
-    z-index: 0;
-}
-
-/* Position iframe properly */
-.video-background iframe {
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-    transform: scale(1.2); /* Slight zoom */
-}
-
-/* Content stays on top */
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -1;
+	transform: translate(-50%, -50%);
+	object-fit: cover;
+  }
+  
 .text-container, .container {
     position: relative;
     z-index: 2;
 }
 
-/* Optional: dark overlay for better text readability */
 .video-background::after {
     content: "";
     position: absolute;
@@ -837,37 +829,10 @@ input[type='checkbox'] {
     z-index: 1;
 }
 
-.header .countdown {
-	margin-bottom: 0.5rem;
-	color: #fff;
-	text-align: center;
-}
-
-.header .countdown #clock .counter-number {
-	display: inline-block;
-	width: 6.5rem;
-	height: 6.5rem;
-	margin-right: 0.5rem;
-	margin-bottom: 1.25rem;
-	margin-left: 0.5rem;
-	padding-top: 2rem;
-	border: 0.125rem solid #fff;
-	border-radius: 50%;
-	font-weight: 400;
-	font-size: 2.25rem;
-	line-height: 1.25rem;
-	text-align: center;
-}
-
-.header .countdown #clock .counter-number .timer-text {
-	font-size: 0.75rem;
-	line-height: 1rem;
-	text-align: center;
-}
-
 .header h1 {
 	margin-bottom: 0.75rem;
 	color: #eee;
+	line-height: 2rem;
 }
 
 .header .p-large {
@@ -943,13 +908,14 @@ input[type='checkbox'] {
 /*     05. Registration     */
 /****************************/
 .form-1 {
-	padding-top: 6rem;
+	padding-top: 3rem;
 	padding-bottom: 6.25rem;
 	background-color: #ffbd50;
 }
 
 .form-1 h2 {
 	margin-bottom: 1.25rem;
+	font-size: 1.5rem;
 }
 
 .form-1 p,
@@ -1354,7 +1320,7 @@ input[type='checkbox'] {
 /*     13. Testimonials     */
 /****************************/
 .slider-2 {
-	padding-top: 2.5rem;
+	padding-top: 1rem;
 	padding-bottom: 4rem;
 	background-color: #fbf9f5;
 }
@@ -1774,8 +1740,12 @@ a:hover.back-to-top {
 
 	.header h1 {
 		font-size: 4rem;
-		line-height: 4.875rem;
+		line-height: 3.75rem;
 		letter-spacing: -0.3px;
+	}
+
+	.header h4{
+		font-size: 1.5rem;
 	}
 
 	.header .btn-solid-lg {
@@ -1799,7 +1769,7 @@ a:hover.back-to-top {
 
 	/* Registration */
 	.form-1 {
-		padding-top: 9rem;
+		padding-top: 3rem;
 	}
 	/* end of registration */
 
@@ -1963,10 +1933,13 @@ a:hover.back-to-top {
 
 	/* Registration */
 	.form-1 {
-		padding-top: 10rem;
+		padding-top: 6rem;
 	}
 	/* end of registration */
 
+	.form-1 h2{
+		font-size: 2rem;;
+	}
 
 	/* Instructor */
 	.basic-1 {
@@ -1981,7 +1954,7 @@ a:hover.back-to-top {
 
 	/* Description */
 	.basic-2 {
-		padding-top: 4.5rem;
+		padding-top: 1.5rem;
 		padding-bottom: 3.5rem
 	}
 	/* end of description */
@@ -2020,7 +1993,7 @@ a:hover.back-to-top {
 
 	/* Video */
 	.basic-4 {
-		padding-top: 4.5rem;
+		padding-top: 1.5rem;
 		padding-bottom: 3.5rem;
 	}
 	/* end of video */
@@ -2028,7 +2001,7 @@ a:hover.back-to-top {
 
 	/* Takeaways */
 	.cards {
-		padding-top: 3.5rem;
+		padding-top: 1.5rem;
 		padding-bottom: 3rem;
 	}
 
@@ -2153,8 +2126,8 @@ a:hover.back-to-top {
 	
 
 	/* Registration */
-	.form-1 {
-		padding-top: 12rem;
+	.form-1 h2 {
+		font-size: 2.25rem;
 	}
 
 	.form-1 .text-container {

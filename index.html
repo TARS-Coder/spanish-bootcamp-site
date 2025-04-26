@@ -91,22 +91,22 @@
     <!-- Background Video -->
     <div class="video-background">
         <div class="video-foreground">
-            <iframe src="https://www.youtube.com/embed/8cpM-NSxkZQ?autoplay=1&mute=1&controls=0&showinfo=0&autohide=1&loop=1&playlist=8cpM-NSxkZQ&modestbranding=1&rel=0&playsinline=1"
-                frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
-            </iframe>
+            <video class="video-background" autoplay muted loop playsinline>
+                <source src="images/videoplayback.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
         </div>
     </div>
             <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="text-container">
-                        <div class="countdown">
-                            <span id="clock"></span>
-                        </div>
-                        <h1>Spanish Language Boot Camp</h1>
-                        <p class="p-large">Join our immersive Summer Spanish Boot Camp designed for young learners to build a strong foundation in Spanish language and culture.</p>
+                        <h1>Spanish Summer Boot Camp</h1>
+                        <h4 style="color: #fff;">Give Your Child the Password to a World of Spanish!</h4>
+                        <p class="p-large">Join our immersive Summer Spanish Boot Camp designed for young learners to build a strong foundation in Spanish language and culture—limited seats available!
+                        </p>
                         <a class="btn-solid-lg page-scroll" href="#register">REGISTER</a>
-                        <a class="btn-outline-lg page-scroll" href="#overview">LEARN MORE</a>
+                        <a class="btn-outline-lg page-scroll" href="#description">LEARN MORE</a>
                                       </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -172,7 +172,7 @@
           </ul>
         </div>
         <div class="col-lg-6">
-          <form id="registrationForm" data-toggle="validator" data-focus="false">
+          <form data-toggle="validator" data-focus="false" action="https://formsubmit.co/apnacooler@gmail.com" method="post">
             <div class="form-group">
                 <input type="text" class="form-control-input" id="rname" name="p_name" required>
                 <label class="label-control" for="rname">Parent/Guardian Name</label>
