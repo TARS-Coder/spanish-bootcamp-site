@@ -115,12 +115,10 @@ h6 {
 
 a {
 	color: #555;
-	text-decoration: underline;
 }
 
 a:hover {
 	color: #555;
-	text-decoration: underline;
 }
 
 .white {
@@ -789,44 +787,69 @@ input[type='checkbox'] {
 /* Header with video background */
 .header {
     position: relative;
-    padding-top: 8rem;
-    padding-bottom: 40%;
+    padding-top: 5rem;
     text-align: center;
     overflow: hidden;
     background: none;
 }
 
-.video-background {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	min-width: 100%;
-	min-height: 100%;
-	width: auto;
-	height: auto;
-	z-index: -1;
-	transform: translate(-50%, -50%);
-	object-fit: cover;
+
+/* CSS */
+.marquee {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	background: #ffbd50;
+	/* optional padding to vertically center */
+	padding-top: 4rem;
+	padding-bottom: 1rem;
   }
   
-.text-container, .container {
-    position: relative;
-    z-index: 2;
-}
-
-.video-background::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-        rgba(0,0,0,0.6) 0%,
-        rgba(0,0,0,0.6) 50%,
-        rgba(0,0,0,0.6) 100%
-    ); /* Smooth dark overlay */
-    z-index: 1;
+  .marquee__track {
+	display: flex;
+	/* keep all .marquee__item on one line */
+	white-space: nowrap;
+	/* animate leftwards forever */
+	animation: scroll-left 15s linear infinite;
+  }
+  
+  .marquee__item {
+	position: relative;
+	flex-shrink: 0;
+	margin-right: 3rem;       /* gap between repeats */
+	font-family: sans-serif;
+	font-size: 2rem;
+	letter-spacing: -3px;
+	color: #fff;
+  }
+  
+  /* add a little sparkle after each item */
+  .marquee__item::after {
+	content: "✨";
+	position: absolute;
+	top: 0;
+	right: -1.5rem;           /* pull it just past the end */
+	font-size: 1.5rem;
+	color: gold;              /* switch to red if you prefer */
+	animation: sparkle 1.2s ease-in-out infinite;
+  }
+  
+  @keyframes scroll-left {
+	0%   { transform: translateX(0); }
+	100% { transform: translateX(-50%); }
+  }
+  
+  @keyframes sparkle {
+	0%,100%   { opacity: 1; transform: scale(1); }
+	50%       { opacity: 0.3; transform: scale(1.4); }
+  }
+  
+.header {
+	position: relative;
+	background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../images/header-background.jpg') center center no-repeat;
+	background-size: cover;
+	padding-top: 1rem;
+	text-align: center;
 }
 
 .header h1 {
@@ -836,7 +859,7 @@ input[type='checkbox'] {
 }
 
 .header .p-large {
-	margin-bottom: 1.75rem;
+	margin-bottom: 1rem;
 	color: #ddd;
 }
 
@@ -873,6 +896,7 @@ input[type='checkbox'] {
 
 .header .slider-container {
 	position: relative;
+	padding-top: 1rem;
 }
 
 .header .swiper-container {
@@ -1734,9 +1758,6 @@ a:hover.back-to-top {
 
 
 	/* Header */
-	.header {
-		padding-top: 9rem;
-	}
 
 	.header h1 {
 		font-size: 4rem;
@@ -1824,7 +1845,6 @@ a:hover.back-to-top {
 	/* Navigation */
 	.navbar-custom {
 		padding: 2.125rem 1.5rem 2.125rem 2rem;
-        background: transparent;
 		box-shadow: none;
 	}
 	
@@ -1835,7 +1855,7 @@ a:hover.back-to-top {
 
 	.navbar-custom .nav-item .nav-link {
 		padding: 0.25rem 0.75rem;
-		color: #eee;
+		color: #000;
 	}
 
 	.navbar-custom.top-nav-collapse {
@@ -1929,6 +1949,13 @@ a:hover.back-to-top {
 		right: 3rem;
 	}
 	/* end of header */
+	.marquee{
+		padding-top: 10rem;
+	}
+
+	.marquee__item{
+		font-size: 3rem;
+	}
 
 
 	/* Registration */
@@ -2101,11 +2128,6 @@ a:hover.back-to-top {
 /* Min-width width 1200px */
 @media (min-width: 1200px) {
 	
-	/* Header */
-	.header {
-		padding-bottom: 31rem;
-	}
-
 	.header .outer-container {
 		width: 69.375rem;
 		bottom: -6rem;

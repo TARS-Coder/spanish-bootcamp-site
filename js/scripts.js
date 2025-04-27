@@ -208,7 +208,9 @@
 		var email = $("#p_email").val();
 		var phone = $("#p_phone").val();
         var childname = $("#c_name").val();
-        
+
+        console.log(name+email+phone+childname);
+
         $.ajax({
             type: "POST",
             url: "https://formsubmit.co/apnacooler@gmail.com",

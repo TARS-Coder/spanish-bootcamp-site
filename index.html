@@ -44,7 +44,7 @@
     
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top top-nav-collapse">
 
         <!-- Text Logo - Use this if you don't have a graphic logo -->
         <a class="navbar-brand logo-text page-scroll" href="index.html">LinguaVida School Of Languages</a>
@@ -88,32 +88,33 @@
 
     <!-- Header -->
     <header id="header" class="header">
-    <!-- Background Video -->
-    <div class="video-background">
-        <div class="video-foreground">
-            <video class="video-background" autoplay muted loop playsinline>
-                <source src="images/videoplayback.webm" type="video/webm">
-                Your browser does not support the video tag.
-            </video>
+    <a href="#register" style="text-decoration: none;">
+    <div class="marquee">
+        <div class="marquee__track">
+          <div class="marquee__item">SPANISH SUMMER BOOT CAMP</div>
+          <div class="marquee__item">SPANISH SUMMER BOOT CAMP</div>
+          <div class="marquee__item">SPANISH SUMMER BOOT CAMP</div>
+          <div class="marquee__item">SPANISH SUMMER BOOT CAMP</div>
         </div>
-    </div>
-            <div class="container">
+      </div>
+      </a>
+      
+      <div class="container-fluid" style="background-color: #575652; padding: 1rem 0;">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="text-container">
-                        <h1>Spanish Summer Boot Camp</h1>
                         <h4 style="color: #fff;">Give Your Child the Password to a World of Spanish!</h4>
                         <p class="p-large">Join our immersive Summer Spanish Boot Camp designed for young learners to build a strong foundation in Spanish language and culture—limited seats available!
                         </p>
                         <a class="btn-solid-lg page-scroll" href="#register">REGISTER</a>
                         <a class="btn-outline-lg page-scroll" href="#description">LEARN MORE</a>
-                                      </div> <!-- end of text-container -->
+                    </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
         
         <!-- Image Slider -->
-        <div class="outer-container">
+        <div class="container">
             <div class="slider-container">
                 <div class="swiper-container image-slider-1">
                     <div class="swiper-wrapper">
@@ -172,21 +173,21 @@
           </ul>
         </div>
         <div class="col-lg-6">
-          <form data-toggle="validator" data-focus="false" action="https://formsubmit.co/apnacooler@gmail.com" method="post">
+          <form id="registrationForm" data-toggle="validator" data-focus="false">
             <div class="form-group">
-                <input type="text" class="form-control-input" id="rname" name="p_name" required>
+                <input type="text" class="form-control-input" id="p_name" name="p_name" required>
                 <label class="label-control" for="rname">Parent/Guardian Name</label>
             </div>
             <div class="form-group">
-                    <input type="email" class="form-control-input" id="remail" name="p_email" required>
+                    <input type="email" class="form-control-input" id="p_email" name="p_email" required>
                     <label class="label-control" for="remail">Email Address</label>
                 </div>
             <div class="form-group">
-                <input type="text" class="form-control-input" id="rphone" name="p_phone" required>
+                <input type="text" class="form-control-input" id="p_phone" name="p_phone" required>
                 <label class="label-control" for="rphone">Contact Number</label>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control-input" id="childname" name="c_name" required>
+                <input type="text" class="form-control-input" id="c_name" name="c_name" required>
                 <label class="label-control" for="childname">Child’s Name</label>
             </div>
             <div class="form-group checkbox">
