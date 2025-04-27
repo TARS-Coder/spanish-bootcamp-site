@@ -214,7 +214,7 @@
         $.ajax({
             type: "POST",
             url: "https://formsubmit.co/apnacooler@gmail.com",
-            data: "name=" + name + "&email=" + email + "&phone=" + phone + "&ChildName=" + childname, 
+            data: "name=" + name + "&email=" + email + "&phone=" + phone + "&ChildName=" + childname + "&_captcha=false", 
             success: function(text) {
                 if (text == "success") {
                     rformSuccess();
