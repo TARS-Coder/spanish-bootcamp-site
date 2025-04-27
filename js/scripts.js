@@ -188,66 +188,60 @@
 		}
     });
 
+// Wait until the page is fully loaded
+(() => {
+  'use strict';
 
-    /* Registration Form */
-    $("#registrationForm").validator().on("submit", function(event) {
-    	if (event.isDefaultPrevented()) {
-            // handle the invalid form...
-            rformError();
-            rsubmitMSG(false, "Please fill all fields!");
-        } else {
-            // everything looks good!
-            event.preventDefault();
-            rsubmitForm();
-        }
-    });
+  // Fetch all the forms we want to apply custom Bootstrap validation to
+  const forms = document.querySelectorAll('.needs-validation');
 
-    function rsubmitForm() {
-        // initiate variables with form content
-		var name = $("#p_name").val();
-		var email = $("#p_email").val();
-		var phone = $("#p_phone").val();
-        var childname = $("#c_name").val();
-
-        console.log(name+email+phone+childname);
-
-        $.ajax({
-            type: "POST",
-            url: "https://formsubmit.co/apnacooler@gmail.com",
-            data: "name=" + name + "&email=" + email + "&phone=" + phone + "&ChildName=" + childname + "&_captcha=false", 
-            success: function(text) {
-                if (text == "success") {
-                    rformSuccess();
-                } else {
-                    rformError();
-                    rsubmitMSG(false, text);
-                }
-            }
-        });
-	}
-
-    function rformSuccess() {
-        $("#registrationForm")[0].reset();
-        rsubmitMSG(true, "Request Submitted!");
-        $("input").removeClass('notEmpty'); // resets the field label after submission
-    }
-
-    function rformError() {
-        $("#registrationForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-            $(this).removeClass();
-        });
-	}
-
-    function rsubmitMSG(valid, msg) {
-        if (valid) {
-            var msgClasses = "h3 text-center tada animated";
-        } else {
-            var msgClasses = "h3 text-center";
-        }
-        $("#rmsgSubmit").removeClass().addClass(msgClasses).text(msg);
-    }
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      // If the form is invalid, prevent submission
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      // Add Bootstrap validation styles
+      form.classList.add('was-validated');
+    }, false);
+  });
+})();
     
 
+    /* Registration Form */
+    var form = document.getElementById("registrationForm");
+  
+    async function handleSubmit(event) {
+      event.preventDefault();
+      var status = document.getElementById("registration-form-status");
+      var data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          status.innerHTML = "Thanks for your submission!";
+          form.reset()
+        } else {
+          response.json().then(data => {
+            if (Object.hasOwn(data, 'errors')) {
+              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+            } else {
+              status.innerHTML = "Oops! There was a problem submitting your form"
+            }
+          })
+        }
+      }).catch(error => {
+        status.innerHTML = "Oops! There was a problem submitting your form"
+      });
+    }
+    form.addEventListener("submit", handleSubmit)
+
+    
     /* Newsletter Form */
     $("#newsletterForm").validator().on("submit", function(event) {
     	if (event.isDefaultPrevented()) {

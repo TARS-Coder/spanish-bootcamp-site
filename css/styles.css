@@ -220,9 +220,16 @@ a:hover {
 	text-decoration: none;
 }
 
-.form-group {
+.input-group {
 	position: relative;
 	margin-bottom: 1.25rem;
+}
+
+.form-control{
+	height: 2.75rem;
+	padding-left: 1.3125rem;
+	border: 1px solid #c4d8dc;
+	border-radius: 0.25rem;
 }
 
 .form-group.has-error.has-danger {
@@ -794,55 +801,56 @@ input[type='checkbox'] {
 }
 
 
-/* CSS */
-.marquee {
-	position: relative;
-	overflow: hidden;
-	width: 100%;
-	background: #ffbd50;
-	/* optional padding to vertically center */
-	padding-top: 4rem;
-	padding-bottom: 1rem;
+/* CSS */.marquee {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background: #ffbd50; /* main background */
+  padding: 4rem 0 1rem 0;
+}
+
+.marquee__track {
+  display: flex;
+  white-space: nowrap;
+  animation: scroll-left 15s linear infinite;
+}
+
+.marquee__item {
+  flex-shrink: 0;
+  margin: 0 2rem;
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000; /* main text color */
+  display: flex;
+  align-items: center;
+}
+
+/* Special badge for "Limited Seats" */
+@keyframes blink {
+	0%, 100% { opacity: 1; }
+	50% { opacity: 0.4; }
   }
   
-  .marquee__track {
-	display: flex;
-	/* keep all .marquee__item on one line */
-	white-space: nowrap;
-	/* animate leftwards forever */
-	animation: scroll-left 15s linear infinite;
-  }
-  
-  .marquee__item {
-	position: relative;
-	flex-shrink: 0;
-	margin-right: 3rem;       /* gap between repeats */
-	font-family: sans-serif;
-	font-size: 2rem;
-	letter-spacing: -3px;
+  .badge-limited {
+	background-color: #dc3545; /* Red badge */
 	color: #fff;
+	font-size: 0.75rem;
+	font-weight: 600;
+	border-radius: 0.5rem;
+	padding: 0.15rem 0.5rem;
+	margin-left: 0.75rem;
+	white-space: nowrap;
+	display: inline-block;
+	animation: blink 1s infinite;
   }
-  
-  /* add a little sparkle after each item */
-  .marquee__item::after {
-	content: "✨";
-	position: absolute;
-	top: 0;
-	right: -1.5rem;           /* pull it just past the end */
-	font-size: 1.5rem;
-	color: gold;              /* switch to red if you prefer */
-	animation: sparkle 1.2s ease-in-out infinite;
-  }
-  
-  @keyframes scroll-left {
-	0%   { transform: translateX(0); }
-	100% { transform: translateX(-50%); }
-  }
-  
-  @keyframes sparkle {
-	0%,100%   { opacity: 1; transform: scale(1); }
-	50%       { opacity: 0.3; transform: scale(1.4); }
-  }
+
+/* marquee movement */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
   
 .header {
 	position: relative;

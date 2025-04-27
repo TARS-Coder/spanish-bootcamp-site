@@ -47,7 +47,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top top-nav-collapse">
 
         <!-- Text Logo - Use this if you don't have a graphic logo -->
-        <a class="navbar-brand logo-text page-scroll" href="index.html">LinguaVida School Of Languages</a>
+        <a class="navbar-brand logo-text page-scroll" href="index.html">LinguaVida Academy</a>
 
         <!-- Image Logo -->
         <!--<a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative"></a> -->
@@ -88,23 +88,35 @@
 
     <!-- Header -->
     <header id="header" class="header">
-    <a href="#register" style="text-decoration: none;">
-    <div class="marquee">
-        <div class="marquee__track">
-          <div class="marquee__item">SPANISH SUMMER BOOT CAMP</div>
-          <div class="marquee__item">SPANISH SUMMER BOOT CAMP</div>
-          <div class="marquee__item">SPANISH SUMMER BOOT CAMP</div>
-          <div class="marquee__item">SPANISH SUMMER BOOT CAMP</div>
-        </div>
-      </div>
-      </a>
-      
+        <a href="#register" style="text-decoration: none;">
+            <div class="marquee">
+              <div class="marquee__track">
+                <div class="marquee__item">
+                  SPANISH SUMMER BOOT CAMP
+                  <span class="badge-limited">Limited Seats</span>
+                </div>
+                <div class="marquee__item">
+                  SPANISH SUMMER BOOT CAMP
+                  <span class="badge-limited">Limited Seats</span>
+                </div>
+                <div class="marquee__item">
+                  SPANISH SUMMER BOOT CAMP
+                  <span class="badge-limited">Limited Seats</span>
+                </div>
+                <div class="marquee__item">
+                  SPANISH SUMMER BOOT CAMP
+                  <span class="badge-limited">Limited Seats</span>
+                </div>
+              </div>
+            </div>
+          </a>
+                
       <div class="container-fluid" style="background-color: #575652; padding: 1rem 0;">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="text-container">
                         <h4 style="color: #fff;">Give Your Child the Password to a World of Spanish!</h4>
-                        <p class="p-large">Join our immersive Summer Spanish Boot Camp designed for young learners to build a strong foundation in Spanish language and culture—limited seats available!
+                        <p class="p-large">Join our immersive Summer Spanish Boot Camp designed for young learners.
                         </p>
                         <a class="btn-solid-lg page-scroll" href="#register">REGISTER</a>
                         <a class="btn-outline-lg page-scroll" href="#description">LEARN MORE</a>
@@ -173,28 +185,54 @@
           </ul>
         </div>
         <div class="col-lg-6">
-          <form id="registrationForm" data-toggle="validator" data-focus="false">
-            <div class="form-group">
-                <input type="text" class="form-control-input" id="p_name" name="p_name" required>
-                <label class="label-control" for="rname">Parent/Guardian Name</label>
-            </div>
-            <div class="form-group">
-                    <input type="email" class="form-control-input" id="p_email" name="p_email" required>
-                    <label class="label-control" for="remail">Email Address</label>
+            <form id="registrationForm" class="needs-validation" novalidate action="https://formspree.io/f/xyzwzono" method="post">
+                <div class="input-group">
+                  <label class="label-control" for="p_name">Parent/Guardian Name</label>
+                  <input type="text" class="form-control" id="p_name" name="p_name" placeholder="Parent/Guardian Name" required>
+                  <div class="invalid-feedback">
+                    Please enter the parent or guardian’s name.
+                  </div>
                 </div>
-            <div class="form-group">
-                <input type="text" class="form-control-input" id="p_phone" name="p_phone" required>
-                <label class="label-control" for="rphone">Contact Number</label>
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control-input" id="c_name" name="c_name" required>
-                <label class="label-control" for="childname">Child’s Name</label>
-            </div>
-            <div class="form-group checkbox">
-                <input type="checkbox" id="rterms" required> I agree to the terms and privacy policy</div>
-            <button type="submit" class="form-control-submit-button">REGISTER</button>
-            <div id="rmsgSubmit" class="h3 text-center hidden"></div>
+              
+                <div class="input-group">
+                    <label class="label-control" for="p_phone">Contact Number</label>
+                    <input type="text" class="form-control" id="p_phone" name="p_phone" placeholder="Contact Number" required>
+                    <div class="invalid-feedback">
+                      Please enter a contact number.
+                    </div>
+                  </div>
+                
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">@</div>
+                    </div>
+                    <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Email" name="p_email" required>
+                    <div class="invalid-feedback">
+                        Please enter a valid Email Address
+                      </div>
+                    </div>
+                          
+                <div class="input-group">
+                  <label class="label-control" for="c_name">Child’s Name</label>
+                  <input type="text" class="form-control" id="c_name" name="c_name" placeholder="Child’s Name" required>
+                  <div class="invalid-feedback">
+                    Please enter the child’s name.
+                  </div>
+                </div>
+              
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="rterms" required>
+                  <label class="form-check-label" for="rterms">
+                    I agree to the terms and privacy policy
+                  </label>
+                  <div class="invalid-feedback">
+                    You must agree before submitting.
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">REGISTER</button>
+                <div id="registration-form-status" class="h3 text-center hidden"></div>
           </form>
+              
         </div>
       </div>
     </div>
@@ -210,7 +248,7 @@
                 <div class="col-lg-6">
                     <div class="text-container">
                         <h2 style="margin-bottom: 0px;">Hola Everybody! I'm Neha </h2>
-                        <i>Course Instructor and Founder at LVSL</i>
+                        <i>Course Instructor and Founder at LV Academy</i>
                         <p style="margin-top: 10px;"> I’ve taught students in Spain and in top Indian national and international schools, and even helped a bright student from France excel in his career.</p>
                         <p>Having lived in several European countries, especially Spain, I bring real cultural insight into my teaching. </p>
                     </div> <!-- end of text-container -->
@@ -542,7 +580,7 @@
                             </li>
                             <li class="media">
                                 <i class="fas fa-envelope"></i>
-                                <div class="media-body"><a class="light-gray" href="mailto:lvsl@gmail.com">lvsl@gmail.com</a> <i class="fas fa-globe"></i><a class="light-gray" href="#your-link">www.lvsl.in</a></div>
+                                <div class="media-body"><a class="light-gray" href="mailto:linguavidaacademy@gmail.com">linguavidaacademy@gmail.com</a> <i class="fas fa-globe"></i><a class="light-gray" href="#your-link">www.linguavida.in</a></div>
                             </li>
                         </ul>
                     </div> <!-- end of text-container -->
@@ -590,8 +628,8 @@
   <div class="footer">
     <div class="container">
       <div class="row">
-        <div class="col-md-6"><h5>About LinguaVida School Of Languages</h5><p>We’re dedicated to nurturing young minds through immersive Spanish language and cultural experiences.</p></div>
-        <div class="col-md-6 text-right"><p>&copy; 2025 LinguaVida School Of Languages. All rights reserved.</p></div>
+        <div class="col-md-6"><h5>About LinguaVida Academy</h5><p>We’re dedicated to nurturing young minds through immersive Spanish language and cultural experiences.</p></div>
+        <div class="col-md-6 text-right"><p>&copy; 2025 LinguaVida Academy. All rights reserved.</p></div>
       </div>
     </div>
   </div>
