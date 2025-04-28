@@ -964,8 +964,9 @@ input[type='checkbox'] {
 
 .form-1 .list-unstyled .fas {
 	color: #333;
-	font-size: 0.5rem;
+	font-size: 1.5rem;
 	line-height: 1.5rem;
+	margin-top: 0.2rem;
 }
 
 .form-1 .list-unstyled .media-body {
