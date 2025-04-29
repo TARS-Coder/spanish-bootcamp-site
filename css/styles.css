@@ -647,9 +647,8 @@ input[type='checkbox'] {
 }
 
 .navbar-custom .navbar-brand.logo-image img {
-    width: 5.5625rem;
-	height: 1.875rem;
-}
+    width: 20rem;
+©}
 
 .navbar-custom .navbar-brand.logo-text {
     font-style: italic;
@@ -1506,7 +1505,7 @@ input[type='checkbox'] {
 /*     16. Contact     */
 /***********************/
 .form-3 {
-	padding-top: 6.125rem;
+	padding-top: 4.5rem;
 	padding-bottom: 5.125rem;
 	background-color: #ffbd50;
 }
@@ -1847,13 +1846,82 @@ a:hover.back-to-top {
 }
 /* end of min-width width 768px */
 
+.image-gallery img{
+	height: 300px !important;
+}
+
+.btn:focus, .btn:active, button:focus, button:active {
+	outline: none !important;
+	box-shadow: none !important;
+  }
+  
+  #image-gallery .modal-footer{
+	display: block;
+  }
+  
+  .thumb{
+	margin-top: 15px;
+	margin-bottom: 15px;
+  }
+
+/* Masonry container */
+.image-masonry {
+	column-count: 4;
+	column-gap: 15px;
+	/* optional container padding is already on .image-gallery */
+  }
+  
+  /* Each thumbnail flows in the columns */
+  .image-masonry .thumbnail {
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 15px;
+	break-inside: avoid;        /* prevent splitting across columns */
+	text-decoration: none;      /* remove link underline */
+  }
+  
+  /* Make images responsive */
+  .image-masonry .thumbnail img {
+	width: 100%;
+	height: auto !important;
+	display: block;
+  }
+  
+  /* Disable focus outlines on buttons (keep your existing rule) */
+  .btn:focus, .btn:active, button:focus, button:active {
+	outline: none !important;
+	box-shadow: none !important;
+  }
+  
+  /* Ensure modal footer stays visible */
+  #image-gallery .modal-footer {
+	display: block;
+  }
+  
+  /* Responsive breakpoints */
+  @media (max-width: 900px) {
+	.image-masonry {
+	  column-count: 3;
+	}
+  }
+  
+  @media (max-width: 600px) {
+	.image-masonry {
+	  column-count: 1;
+	  column-gap: 0;    /* no gutter in single-col */
+	}
+	.image-masonry .thumbnail {
+	  margin-bottom: 0; /* you can re-add vertical spacing via img if desired */
+	}
+  }
+  
 
 /* Min-width width 992px */
 @media (min-width: 992px) {
 	
 	/* Navigation */
 	.navbar-custom {
-		padding: 2.125rem 1.5rem 2.125rem 2rem;
+		padding: 1.125rem 1.5rem 1.125rem 2rem;
 		box-shadow: none;
 	}
 	
@@ -2235,7 +2303,7 @@ a:hover.back-to-top {
 
 	/* Contact */
 	.form-3 .text-container {
-		margin-top: 2.25rem;
+		margin-top: 1.©5rem;
 		margin-right: 3.5rem;
 	}
 	/* end of contact */
@@ -2277,3 +2345,14 @@ a:hover.back-to-top {
 	/* end of extra pages */
 }
 /* end of min-width width 1200px */
+
+#map-container {
+	width: 100%;
+	height: 325px;
+	border: 1px solid #ccc;
+  }
+  iframe {
+	width: 100%;
+	height: 100%;
+	border: 0;
+  }
