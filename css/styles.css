@@ -647,8 +647,8 @@ input[type='checkbox'] {
 }
 
 .navbar-custom .navbar-brand.logo-image img {
-    width: 20rem;
-©}
+    width: 18rem;
+}
 
 .navbar-custom .navbar-brand.logo-text {
     font-style: italic;
@@ -1749,7 +1749,20 @@ a:hover.back-to-top {
 	margin-top: 1.5rem;
 }
 
+        /* + icon that spins into × */
+        .faq .card-header .btn .fa-plus {
+			transition: transform .3s ease;
+		  }
+		  /* When collapsed (hidden), keep + upright */
+		  .faq .card-header .btn.collapsed .fa-plus {
+			transform: rotate(0deg);
+		  }
+		  /* When expanded, rotate + to become × */
+		  .faq .card-header .btn:not(.collapsed) .fa-plus {
+			transform: rotate(135deg);
+		  }
 
+		  
 /*****************************/
 /*     21. Media Queries     */
 /*****************************/	
