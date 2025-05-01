@@ -45,20 +45,7 @@
     $(".navbar-nav li a").on("click", function(event) {
     if (!$(this).parent().hasClass('dropdown'))
         $(".navbar-collapse").collapse('hide');
-    });
-
-
-    /* Countdown Timer - The Final Countdown */
-	$('#clock').countdown('2025/05/16') /* change here your "countdown to" date */
-	.on('update.countdown', function(event) {
-		var format = '<span class="counter-number">%D<br><span class="timer-text">Days</span></span><span class="counter-number">%H<br><span class="timer-text">Hours</span></span><span class="counter-number">%M<br><span class="timer-text">Minutes</span></span><span class="counter-number">%S<br><span class="timer-text">Seconds</span></span>';
-		$(this).html(event.strftime(format));
-	})
-	.on('finish.countdown', function(event) {
-	$(this).html('This offer has expired!')
-		.parent().addClass('disabled');
-    });
-
+    })
 
     /* Image Slider 2 - Swiper */
     var imageSliderOne = new Swiper('.image-slider-1', {
