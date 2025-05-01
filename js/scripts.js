@@ -210,37 +210,44 @@
     
 
     /* Registration Form */
-    var form = document.getElementById("registrationForm");
+(function() {
+    const form = document.getElementById("registrationForm");
+    const status = document.getElementById("registration-form-status");
   
     async function handleSubmit(event) {
       event.preventDefault();
-      var status = document.getElementById("registration-form-status");
-      var data = new FormData(event.target);
-      fetch(event.target.action, {
-        method: form.method,
-        body: data,
-        headers: {
-            'Accept': 'application/json'
-        }
-      }).then(response => {
+      event.stopPropagation();
+  
+      form.classList.add("was-validated");
+      if (!form.checkValidity()) return false;
+  
+      const data = new FormData(form);
+      try {
+        const response = await fetch("https://formspree.io/f/xyzwzono", {
+          method: "POST",
+          body: data,
+          headers: { "Accept": "application/json" }
+        });
         if (response.ok) {
           status.innerHTML = "Thanks for your submission!";
-          form.reset()
+          form.classList.remove("was-validated");
+          form.reset();
         } else {
-          response.json().then(data => {
-            if (Object.hasOwn(data, 'errors')) {
-              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-            } else {
-              status.innerHTML = "Oops! There was a problem submitting your form"
-            }
-          })
+          const result = await response.json();
+          status.innerHTML = result.errors
+            ? result.errors.map(e => e.message).join(", ")
+            : "Oops! There was a problem submitting your form";
         }
-      }).catch(error => {
-        status.innerHTML = "Oops! There was a problem submitting your form"
-      });
+      } catch (err) {
+        status.innerHTML = "Oops! There was a problem submitting your form";
+      }
+      return false;
     }
-    form.addEventListener("submit", handleSubmit)
-
+  
+    form.removeEventListener("submit", handleSubmit); // clean up any duplicates
+    form.addEventListener("submit", handleSubmit);
+  })();
+  
     
     /* Newsletter Form */
     $("#newsletterForm").validator().on("submit", function(event) {
@@ -255,160 +262,48 @@
         }
     });
 
-    function nsubmitForm() {
-        // initiate variables with form content
-		var email = $("#nemail").val();
-        var terms = $("#nterms").val();
-        $.ajax({
-            type: "POST",
-            url: "https://formsubmit.co/88bc2219f5beb2fce46d9f7f2d6f6b00",
-            data: "title=" + "Newsletter" + "email=" + email + "&terms=" + terms, 
-            success: function(text) {
-                if (text == "success") {
-                    nformSuccess();
-                } else {
-                    nformError();
-                    nsubmitMSG(false, text);
-                }
+    ;(function() {
+        'use strict';
+        // Contact form element and status div
+        const cForm = document.getElementById("contactForm");
+        const cStatus = document.getElementById("contact-form-status");
+      
+        async function handleContactSubmit(event) {
+          event.preventDefault();
+          event.stopPropagation();
+      
+          // Bootstrap validation UI
+          cForm.classList.add("was-validated");
+          if (!cForm.checkValidity()) return false;
+      
+          const data = new FormData(cForm);
+          try {
+            const response = await fetch("https://formsubmit.co/88bc2219f5beb2fce46d9f7f2d6f6b00", {
+              method: "POST",
+              body: data,
+              headers: { "Accept": "application/json" }
+            });
+            if (response.ok) {
+              cStatus.innerHTML = "Your message has been sent!";
+              // Clear validation and reset form
+              cForm.classList.remove("was-validated");
+              cForm.reset();
+            } else {
+              const result = await response.json();
+              cStatus.innerHTML = result.errors 
+                ? result.errors.map(e => e.message).join(", ") 
+                : "Oops! There was a problem sending your message.";
             }
-        });
-	}
-
-    function nformSuccess() {
-        $("#newsletterForm")[0].reset();
-        nsubmitMSG(true, "Subscribed!");
-        $("input").removeClass('notEmpty'); // resets the field label after submission
-    }
-
-    function nformError() {
-        $("#newsletterForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-            $(this).removeClass();
-        });
-	}
-
-    function nsubmitMSG(valid, msg) {
-        if (valid) {
-            var msgClasses = "h3 text-center tada animated";
-        } else {
-            var msgClasses = "h3 text-center";
+          } catch (err) {
+            cStatus.innerHTML = "Oops! There was a problem sending your message.";
+          }
+      
+          return false;
         }
-        $("#nmsgSubmit").removeClass().addClass(msgClasses).text(msg);
-    }
-
-
-    /* Contact Form */
-    $("#contactForm").validator().on("submit", function(event) {
-    	if (event.isDefaultPrevented()) {
-            // handle the invalid form...
-            cformError();
-            csubmitMSG(false, "Please fill all fields!");
-        } else {
-            // everything looks good!
-            event.preventDefault();
-            csubmitForm();
-        }
-    });
-
-    function csubmitForm() {
-        // initiate variables with form content
-		var name = $("#cname").val();
-		var email = $("#cemail").val();
-        var message = $("#cmessage").val();
-        var terms = $("#cterms").val();
-        $.ajax({
-            type: "POST",
-            url: "https://formsubmit.co/88bc2219f5beb2fce46d9f7f2d6f6b00",
-            data: "name=" + name + "&email=" + email + "&message=" + message + "&terms=" + terms, 
-            success: function(text) {
-                if (text == "success") {
-                    cformSuccess();
-                } else {
-                    cformError();
-                    csubmitMSG(false, text);
-                }
-            }
-        });
-	}
-
-    function cformSuccess() {
-        $("#contactForm")[0].reset();
-        csubmitMSG(true, "Message Submitted!");
-        $("input").removeClass('notEmpty'); // resets the field label after submission
-        $("textarea").removeClass('notEmpty'); // resets the field label after submission
-    }
-
-    function cformError() {
-        $("#contactForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-            $(this).removeClass();
-        });
-	}
-
-    function csubmitMSG(valid, msg) {
-        if (valid) {
-            var msgClasses = "h3 text-center tada animated";
-        } else {
-            var msgClasses = "h3 text-center";
-        }
-        $("#cmsgSubmit").removeClass().addClass(msgClasses).text(msg);
-    }
-
-
-    /* Privacy Form */
-    $("#privacyForm").validator().on("submit", function(event) {
-    	if (event.isDefaultPrevented()) {
-            // handle the invalid form...
-            pformError();
-            psubmitMSG(false, "Please fill all fields!");
-        } else {
-            // everything looks good!
-            event.preventDefault();
-            psubmitForm();
-        }
-    });
-
-    function psubmitForm() {
-        // initiate variables with form content
-		var name = $("#pname").val();
-		var email = $("#pemail").val();
-        var select = $("#pselect").val();
-        var terms = $("#pterms").val();
-        
-        $.ajax({
-            type: "POST",
-            url: "php/privacyform-process.php",
-            data: "name=" + name + "&email=" + email + "&select=" + select + "&terms=" + terms, 
-            success: function(text) {
-                if (text == "success") {
-                    pformSuccess();
-                } else {
-                    pformError();
-                    psubmitMSG(false, text);
-                }
-            }
-        });
-	}
-
-    function pformSuccess() {
-        $("#privacyForm")[0].reset();
-        psubmitMSG(true, "Request Submitted!");
-        $("input").removeClass('notEmpty'); // resets the field label after submission
-    }
-
-    function pformError() {
-        $("#privacyForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-            $(this).removeClass();
-        });
-	}
-
-    function psubmitMSG(valid, msg) {
-        if (valid) {
-            var msgClasses = "h3 text-center tada animated";
-        } else {
-            var msgClasses = "h3 text-center";
-        }
-        $("#pmsgSubmit").removeClass().addClass(msgClasses).text(msg);
-    }
-    
+      
+        // Attach handler
+        cForm.addEventListener("submit", handleContactSubmit);
+      })();
 
     /* Back To Top Button */
     // create the back to top button
